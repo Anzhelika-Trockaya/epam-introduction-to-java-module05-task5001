@@ -69,7 +69,5 @@ public class Main {
         System.out.println("- Deleted file.");
         System.out.println("- Is exist file Harry Potter.txt? --- " +
                 Files.exists(Path.of("D:/introduction-to-java/new-directory/Harry Potter.txt")));
-
-
     }
 }

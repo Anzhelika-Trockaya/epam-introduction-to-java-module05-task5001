@@ -10,8 +10,9 @@ import java.nio.file.Path;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        TextFile textFile;
 
-        TextFile textFile = new TextFile(Path.of("D:/introduction-to-java/new-directory"), "task-5001 ");
+        textFile = new TextFile(Path.of("D:/introduction-to-java/new-directory"), "task-5001 ");
 
         System.out.println("- Is exist file task-5001.txt? --- " +
                 Files.exists(Path.of("D:/introduction-to-java/new-directory/task-5001.txt")));

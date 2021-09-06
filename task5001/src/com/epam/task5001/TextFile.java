@@ -7,6 +7,7 @@ package com.epam.task5001;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Objects;
 
 public class TextFile {
 
@@ -67,7 +68,9 @@ public class TextFile {
     }
 
     public void add(String newContent) throws IOException {
-        try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file.toFile(), true)))) {
+        try (BufferedWriter bw = new BufferedWriter(
+                new OutputStreamWriter(new FileOutputStream(file.toFile(), true)))) {
+
             bw.write(newContent);
         } catch (IOException e) {
             throw new IOException("New context not added to file!" + e);
@@ -76,5 +79,25 @@ public class TextFile {
 
     public void delete() throws IOException {
         Files.deleteIfExists(file);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TextFile)) return false;
+        TextFile textFile = (TextFile) o;
+        return Objects.equals(file, textFile.file);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(file);
+    }
+
+    @Override
+    public String toString() {
+        return "TextFile{" +
+                "file=" + file +
+                '}';
     }
 }

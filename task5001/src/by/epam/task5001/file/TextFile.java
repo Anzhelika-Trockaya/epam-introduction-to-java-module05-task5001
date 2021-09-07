@@ -4,14 +4,11 @@ package by.epam.task5001.file;
 //Создать объект класса Текстовый файл, используя классы Файл, Директория. Методы: создать, переименовать,
 //вывести на консоль содержимое, дополнить, удалить.
 
-import by.epam.task5001.file.Directory;
-import by.epam.task5001.file.File;
-
 import java.io.*;
 
-public class TextFile extends File implements Serializable{
+public class TextFile extends File implements Serializable {
 
-    public TextFile(){
+    public TextFile() {
         super();
     }
 

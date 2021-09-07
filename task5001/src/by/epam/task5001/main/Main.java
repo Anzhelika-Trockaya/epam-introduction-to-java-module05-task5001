@@ -50,7 +50,7 @@ public class Main {
         System.out.println("- Is exist file task-5001.txt? --- " +
                 Files.exists(Path.of("D:/introduction-to-java/new-directory/task-5001.txt")));
 
-        FileLogic.create(file);
+        TextFileLogic.create(file);
 
         System.out.println("- Created file task-5001.txt.");
         System.out.println("- Is exist file task-5001.txt? --- " +
@@ -58,7 +58,7 @@ public class Main {
         System.out.println("- Is exist file Harry Potter.txt? --- " +
                 Files.exists(Path.of("D:/introduction-to-java/new-directory/Harry Potter.txt")));
 
-        FileLogic.rename(file,"Harry Potter.txt");
+        TextFileLogic.rename(file,"Harry Potter.txt");
 
         System.out.println("- File \"task-5001.txt\" renamed to \"Harry Potter.txt\"");
         System.out.println("- Is exist file Harry Potter.txt? --- " +

@@ -7,7 +7,7 @@ import java.nio.file.Path;
 import by.epam.task5001.file.File;
 
 public class FileLogic {
-    public static final String FILE_NAME_REGEX = "[^\"*|?/:<>\\\\]+\\.[a-z0-9]{2,4}";
+    public static final String FILE_NAME_REGEX = "[^\"*|?/:<>\\\\]+";
 
     public static Path getPath(File file){
         return Path.of(file.getDirectory().getPath().toString()+"/"+file.getName());
@@ -17,6 +17,7 @@ public class FileLogic {
         if (DirectoryLogic.notExists(file.getDirectory())) {
             DirectoryLogic.create(file.getDirectory());
         }
+
         Files.createFile(getPath(file));
     }
 
@@ -49,7 +50,7 @@ public class FileLogic {
         }
     }
 
-    public static void delete(File file) throws IOException {
+    public static void deleteIfExists(File file) throws IOException {
         Files.deleteIfExists(getPath(file));
     }
 }

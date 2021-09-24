@@ -5,6 +5,7 @@ import by.epam.task5001.file.TextFile;
 import java.io.*;
 
 public class TextFileLogic extends FileLogic {
+
     public static void rename(TextFile textFile, String newName) throws IOException {
         if (newName.endsWith(".txt")) {
             FileLogic.rename(textFile, newName);

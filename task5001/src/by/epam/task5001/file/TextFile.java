@@ -9,11 +9,12 @@ import java.io.*;
 public class TextFile extends File implements Serializable {
 
     public TextFile() {
-        super();
+        super(new Directory(), "file.txt");
     }
 
     public TextFile(Directory directory, String name) {
         super(directory, name);
+
         if (!name.endsWith(".txt")) {
             throw new IllegalArgumentException("Not text file!");
         }

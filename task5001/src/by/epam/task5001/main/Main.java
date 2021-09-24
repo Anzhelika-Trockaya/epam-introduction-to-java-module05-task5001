@@ -6,7 +6,6 @@ package by.epam.task5001.main;
 
 import by.epam.task5001.file.Directory;
 import by.epam.task5001.file.TextFile;
-import by.epam.task5001.logic.FileLogic;
 import by.epam.task5001.logic.TextFileLogic;
 
 import java.io.IOException;
@@ -82,7 +81,7 @@ public class Main {
         TextFileLogic.printContent(file);
         System.out.println();
 
-        TextFileLogic.delete(file);
+        TextFileLogic.deleteIfExists(file);
         System.out.println("- Deleted file.");
         System.out.println("- Is exist file Harry Potter.txt? --- " +
                 Files.exists(Path.of("D:/introduction-to-java/new-directory/Harry Potter.txt")));

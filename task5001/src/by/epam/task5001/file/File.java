@@ -1,12 +1,8 @@
 package by.epam.task5001.file;
 
-
 import by.epam.task5001.logic.FileLogic;
 
-import java.io.IOException;
 import java.io.Serializable;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Objects;
 
 public class File implements Serializable {
@@ -14,21 +10,21 @@ public class File implements Serializable {
     private String name;
 
 
-    public File(){
+    public File() {
         this.directory = new Directory();
-        this.name="";
+        this.name = "file";
     }
 
-    public File(Directory directory, String name){
-        if(directory!=null){
+    public File(Directory directory, String name) {
+        if (directory != null) {
             this.directory = directory;
-        } else{
+        } else {
             this.directory = new Directory();
         }
 
-        if(name!=null && name.matches(FileLogic.FILE_NAME_REGEX)){
-            this.name=name;
-        } else{
+        if (name != null && !name.isEmpty()) {
+            this.name = name;
+        } else {
             throw new IllegalArgumentException("Incorrect file name!");
         }
     }
@@ -38,9 +34,9 @@ public class File implements Serializable {
     }
 
     public void setDirectory(Directory directory) {
-        if(directory!=null){
+        if (directory != null) {
             this.directory = directory;
-        } else{
+        } else {
             this.directory = new Directory();
         }
     }
@@ -50,9 +46,9 @@ public class File implements Serializable {
     }
 
     public void setName(String name) {
-        if(name!=null && name.matches(FileLogic.FILE_NAME_REGEX)){
-            this.name=name;
-        } else{
+        if (name != null && !name.isEmpty()) {
+            this.name = name;
+        } else {
             throw new IllegalArgumentException("Incorrect file name!");
         }
     }
@@ -62,8 +58,8 @@ public class File implements Serializable {
         if (this == o) return true;
         if (!(o instanceof File)) return false;
         File file = (File) o;
-        return Objects.equals(directory, file.directory) &&
-                Objects.equals(name, file.name);
+        return directory.equals(file.directory) &&
+                name.equals(file.name);
     }
 
     @Override

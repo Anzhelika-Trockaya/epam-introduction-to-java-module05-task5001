@@ -1,20 +1,21 @@
 package by.epam.task5001.file;
 
-import java.io.IOException;
 import java.io.Serializable;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Objects;
 
 public class Directory implements Serializable {
     private Path path;
 
     public Directory() {
-        this.path = null;
+        this.path = Path.of("new folder");
     }
 
     public Directory(Path path) {
-        this.path = path;
+        if (path != null) {
+            this.path = path;
+        } else {
+            this.path = Path.of("new folder");
+        }
     }
 
     public Path getPath() {
@@ -22,7 +23,11 @@ public class Directory implements Serializable {
     }
 
     public void setPath(Path path) {
-        this.path = path;
+        if (path != null) {
+            this.path = path;
+        } else {
+            this.path = Path.of("");
+        }
     }
 
     @Override
@@ -30,12 +35,12 @@ public class Directory implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Directory)) return false;
         Directory directory = (Directory) o;
-        return Objects.equals(path, directory.path);
+        return path.equals(directory.path);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(path);
+        return path.hashCode();
     }
 
     @Override

@@ -1,7 +1,5 @@
 package by.epam.task5001.file;
 
-import by.epam.task5001.logic.FileLogic;
-
 import java.io.Serializable;
 import java.util.Objects;
 

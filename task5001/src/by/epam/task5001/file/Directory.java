@@ -7,14 +7,14 @@ public class Directory implements Serializable {
     private Path path;
 
     public Directory() {
-        this.path = Path.of("new folder");
+        this.path = Path.of("");
     }
 
     public Directory(Path path) {
         if (path != null) {
             this.path = path;
         } else {
-            this.path = Path.of("new folder");
+            this.path = Path.of("");
         }
     }
 
@@ -45,7 +45,7 @@ public class Directory implements Serializable {
 
     @Override
     public String toString() {
-        return "Directory{" +
+        return getClass().getSimpleName() + "{" +
                 "path=" + path +
                 '}';
     }

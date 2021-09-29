@@ -8,11 +8,11 @@ import java.io.*;
 
 public class TextFile extends File implements Serializable {
 
-    public TextFile() {
+    public TextFile() throws FileException {
         super(new Directory(), "file.txt");
     }
 
-    public TextFile(Directory directory, String name) {
+    public TextFile(Directory directory, String name) throws FileException {
         super(directory, name);
 
         if (!name.endsWith(".txt")) {

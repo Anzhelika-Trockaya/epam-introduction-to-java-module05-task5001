@@ -13,7 +13,7 @@ public class File implements Serializable {
         this.name = "file";
     }
 
-    public File(Directory directory, String name) {
+    public File(Directory directory, String name) throws FileException {
         if (directory != null) {
             this.directory = directory;
         } else {
@@ -23,7 +23,7 @@ public class File implements Serializable {
         if (name != null && !name.isEmpty()) {
             this.name = name;
         } else {
-            throw new IllegalArgumentException("Incorrect file name!");
+            throw new FileException("Incorrect file name!");
         }
     }
 
@@ -43,11 +43,11 @@ public class File implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) throws FileException {
         if (name != null && !name.isEmpty()) {
             this.name = name;
         } else {
-            throw new IllegalArgumentException("Incorrect file name!");
+            throw new FileException("Incorrect file name!");
         }
     }
 

@@ -5,15 +5,15 @@ package by.epam.task5001.main;
 //вывести на консоль содержимое, дополнить, удалить.
 
 import by.epam.task5001.file.Directory;
+import by.epam.task5001.file.FileException;
 import by.epam.task5001.file.TextFile;
 import by.epam.task5001.logic.TextFileLogic;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws FileException {
         String directoryPath;
         Directory directory;
         String fileName;

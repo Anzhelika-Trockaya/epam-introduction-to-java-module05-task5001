@@ -10,8 +10,8 @@ import by.epam.task5001.file.FileException;
 public class FileLogic {
     public static final String FILE_NAME_REGEX = "[^\"*|?/:<>\\\\]+";
 
-    public static Path getPath(File file){
-        return Path.of(file.getDirectory().getPath().toString()+"/"+file.getName());
+    public static Path getPath(File file) {
+        return Path.of(file.getDirectory().getPath().toString() + "/" + file.getName());
     }
 
     public static void create(File file) throws FileException {
@@ -21,7 +21,7 @@ public class FileLogic {
 
         try {
             Files.createFile(getPath(file));
-        } catch(IOException exception){
+        } catch (IOException exception) {
             throw new FileException(exception);
         }
     }
@@ -39,7 +39,7 @@ public class FileLogic {
         }
 
         if (newName.matches(FILE_NAME_REGEX)) {
-            newPath = Path.of(file.getDirectory().getPath().toString() +"/"+ newName);
+            newPath = Path.of(file.getDirectory().getPath().toString() + "/" + newName);
 
             if (Files.notExists(newPath)) {
                 try {
@@ -58,7 +58,7 @@ public class FileLogic {
     public static void deleteIfExists(File file) throws FileException {
         try {
             Files.deleteIfExists(getPath(file));
-        } catch(IOException exception){
+        } catch (IOException exception) {
             throw new FileException(exception);
         }
     }

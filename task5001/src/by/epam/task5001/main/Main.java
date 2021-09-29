@@ -8,6 +8,7 @@ import by.epam.task5001.file.Directory;
 import by.epam.task5001.file.FileException;
 import by.epam.task5001.file.TextFile;
 import by.epam.task5001.logic.TextFileLogic;
+import by.epam.task5001.view.View;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,6 +19,7 @@ public class Main {
         Directory directory;
         String fileName;
         TextFile file;
+        View view;
 
         String text1;
         String text2;
@@ -26,6 +28,7 @@ public class Main {
         fileName = "task-5001.txt";
         directory = new Directory(Path.of(directoryPath));
         file = new TextFile(directory, fileName);
+        view = new View();
 
         text1 = """
                 M r. and Mrs. Dursley, of number four, Privet Drive, were proud to say
@@ -46,44 +49,41 @@ public class Main {
                 pretended she didn’t have a sister, because her sister and her good-for-nothing
                 husband were as unDursleyish as it was possible to be.""";
 
-        System.out.println("- Is exist file task-5001.txt? --- " +
+        view.printToConsole("- Is exist file task-5001.txt? --- " +
                 Files.exists(Path.of("D:/introduction-to-java/new-directory/task-5001.txt")));
 
         TextFileLogic.create(file);
 
-        System.out.println("- Created file task-5001.txt.");
-        System.out.println("- Is exist file task-5001.txt? --- " +
+        view.printToConsole("- Created file task-5001.txt.");
+        view.printToConsole("- Is exist file task-5001.txt? --- " +
                 Files.exists(Path.of("D:/introduction-to-java/new-directory/task-5001.txt")));
-        System.out.println("- Is exist file Harry Potter.txt? --- " +
+        view.printToConsole("- Is exist file Harry Potter.txt? --- " +
                 Files.exists(Path.of("D:/introduction-to-java/new-directory/Harry Potter.txt")));
 
         TextFileLogic.rename(file,"Harry Potter.txt");
 
-        System.out.println("- File \"task-5001.txt\" renamed to \"Harry Potter.txt\"");
-        System.out.println("- Is exist file Harry Potter.txt? --- " +
+        view.printToConsole("- File \"task-5001.txt\" renamed to \"Harry Potter.txt\"");
+        view.printToConsole("- Is exist file Harry Potter.txt? --- " +
                 Files.exists(Path.of("D:/introduction-to-java/new-directory/Harry Potter.txt")));
-        System.out.println("- Is exist file task-5001.txt? --- " +
+        view.printToConsole("- Is exist file task-5001.txt? --- " +
                 Files.exists(Path.of("D:/introduction-to-java/new-directory/task-5001.txt")));
 
-        System.out.println("- File content:");
-        TextFileLogic.printContent(file);
-        System.out.println();
+        view.printToConsole("- File content:");
+        view.printToConsole(TextFileLogic.getContent(file));
 
         TextFileLogic.addContent(file, text1);
-        System.out.println("- Added text to file.");
-        System.out.println("- File content:");
-        TextFileLogic.printContent(file);
-        System.out.println();
+        view.printToConsole("- Added text to file.");
+        view.printToConsole("- File content:");
+        view.printToConsole(TextFileLogic.getContent(file));
 
         TextFileLogic.addContent(file, text2);
-        System.out.println("- Added text to file.");
-        System.out.println("- File content:");
-        TextFileLogic.printContent(file);
-        System.out.println();
+        view.printToConsole("- Added text to file.");
+        view.printToConsole("- File content:");
+        view.printToConsole(TextFileLogic.getContent(file));
 
         TextFileLogic.deleteIfExists(file);
-        System.out.println("- Deleted file.");
-        System.out.println("- Is exist file Harry Potter.txt? --- " +
+        view.printToConsole("- Deleted file.");
+        view.printToConsole("- Is exist file Harry Potter.txt? --- " +
                 Files.exists(Path.of("D:/introduction-to-java/new-directory/Harry Potter.txt")));
     }
 }
